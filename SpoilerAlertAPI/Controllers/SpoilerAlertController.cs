@@ -54,7 +54,7 @@ namespace SpoilerAlertAPI.Controllers
                 "INNER JOIN Genre g ON m.GenreId = g.Id " +
                 "INNER JOIN AudienceRating r ON m.AudienceRatingId = r.Id " +
                 "INNER JOIN Director d ON m.DirectorId = d.Id " +
-                "LEFT OUTER JOIN CriticReview cr ON m.Id = cr.MovieId " +
+                "LEFT OUTER JOIN CriticReview cr ON m.Id = cr.MovieId AND cr.IsPublished = 1" +
                 "LEFT OUTER JOIN UserSnapshot u ON cr.CreatedBy = u.UserId "+
                 "WHERE m.Id = @Id";
 
